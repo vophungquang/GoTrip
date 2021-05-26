@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "641119194266",
+    "project_id": "seminar-b752f",
+    "storage_bucket": "seminar-b752f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641119194266:android:bd6aa2a5262906149ca323",
+        "android_client_info": {
+          "package_name": "com.example.seminarvpquang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641119194266-32abgs1nn09o6r8p9orj9b7mkbb9qjt0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsXGIge1FCfI3jDHlvDm_L3ssO4mCisfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641119194266-32abgs1nn09o6r8p9orj9b7mkbb9qjt0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
