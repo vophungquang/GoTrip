@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,12 +59,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-//        reset.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(LoginActivity.this, ResetPassword.class));
-//            }
-//        });
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, ResetPassword.class));
+            }
+        });
 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,29 +96,52 @@ public class LoginActivity extends AppCompatActivity {
             loading.show();
 
             mauth.signInWithEmailAndPassword(Email, pass).
-                    addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                if (Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).isEmailVerified()) {
-                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+//                    addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<AuthResult> task) {
+//                            if (task.isSuccessful()) {
+//                                if (Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).isEmailVerified()) {
+//                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+//                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                    intent.putExtra("namee", message);
+//                                    startActivity(intent);
+//                                    loading.dismiss();
+//                                    finish();
+//                                } else {
+//                                    loading.dismiss();
+//                                    Toast.makeText(LoginActivity.this, "Hãy tạo tài khoản trước!", Toast.LENGTH_SHORT).show();
+//
+//                                }
+//                            } else {
+//
+//                                Toast.makeText(LoginActivity.this, "" + Objects.requireNonNull(task.getException()).toString(), Toast.LENGTH_SHORT).show();
+//                                loading.dismiss();
+//                            }
+//                        }
+//                    });
+//        }
+        addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        @Override
+        public void onComplete(@NonNull Task<AuthResult> task) {
+        if (task.isSuccessful()) {
+            Log.d("vpq", "signInWithEmail:success");
+            Toast.makeText(LoginActivity.this, "Đăng Nhập Thành Công", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     intent.putExtra("namee", message);
                                     startActivity(intent);
                                     loading.dismiss();
                                     finish();
-                                } else {
-                                    loading.dismiss();
-                                    Toast.makeText(LoginActivity.this, "Hãy tạo tài khoản trước!", Toast.LENGTH_SHORT).show();
+            setResult(RESULT_OK,intent);
 
-                                }
-                            } else {
+        } else {
+            Toast.makeText(LoginActivity.this, "Lỗi ĐĂNG NHẬP", Toast.LENGTH_SHORT).show();
 
-                                Toast.makeText(LoginActivity.this, "" + Objects.requireNonNull(task.getException()).toString(), Toast.LENGTH_SHORT).show();
-                                loading.dismiss();
-                            }
-                        }
-                    });
+        }
+
+        // ...
+    }
+});
         }
     }
 }

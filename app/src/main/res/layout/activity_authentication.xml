@@ -53,7 +53,7 @@
                 android:fontFamily="@font/bangers"
                 android:text="GO TRIP"
                 android:textColor="#FFFFFF"
-                android:textSize="60dp" />
+                android:textSize="64dp" />
 
         </LinearLayout>
 
