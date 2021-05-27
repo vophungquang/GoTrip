@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +18,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.seminarvpquang.R;
+import com.example.seminarvpquang.ultil.Server;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,6 +36,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -105,6 +115,7 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                dangkiBangUser();
                                 // making some database for id and password
                                 FirebaseUser firebaseUser = auth.getCurrentUser();
                                 String userid = Objects.requireNonNull(auth.getCurrentUser()).getUid();
@@ -155,5 +166,46 @@ public class RegisterActivity extends AppCompatActivity {
         } else {
             Toast.makeText(RegisterActivity.this, "Please Enter Correct Email-ID", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void dangkiBangUser()
+    {
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, Server.insertUser,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if(response.trim().equals("success"))
+                        {
+                            Toast.makeText(RegisterActivity.this, "Thêm User thành công", Toast.LENGTH_SHORT).show();
+
+                        }
+                        else
+                        {
+                            Toast.makeText(RegisterActivity.this, "lỗi thêm", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(RegisterActivity.this, "Da xay ra loi", Toast.LENGTH_SHORT).show();
+                        Log.d("aaa","Loi!\n"+error.toString());
+                    }
+                }
+        ){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String,String> params=new HashMap<>();
+
+                params.put("email",emaill.getText().toString());
+                params.put("diachi",organisation.getText().toString());
+                params.put("username",username.getText().toString());
+
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
     }
 }

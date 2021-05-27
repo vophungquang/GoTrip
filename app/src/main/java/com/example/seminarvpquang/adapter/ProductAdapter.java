@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.seminarvpquang.R;
 import com.example.seminarvpquang.activity.HomeActivity;
+import com.example.seminarvpquang.activity.ProductDetailActivity;
 import com.example.seminarvpquang.model.Product;
 import com.squareup.picasso.Picasso;
 
@@ -83,8 +84,7 @@ public class ProductAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent=new Intent(context, ProductDetailActivity.class);
-                Intent intent=new Intent();
+                Intent intent=new Intent(context, ProductDetailActivity.class);
                 intent.putExtra("information",product);
                 context.startActivity(intent);
             }

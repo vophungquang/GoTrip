@@ -1,7 +1,7 @@
 package com.example.seminarvpquang.ultil;
 
 public class Server {
-    public static String localhost = "192.168.1.6:8080";
+    public static String localhost = "192.168.1.5:8080";
     public static String path = "http://" + localhost + "/server/getloaisp.php";
     public static String pathNew = "http://" + localhost + "/server/getsanphammoinhat.php";
     public static String pathPhone = "http://" + localhost + "/server/getsanpham.php";
