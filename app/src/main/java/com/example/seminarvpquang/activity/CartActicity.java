@@ -86,7 +86,7 @@ public class CartActicity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String tongtien=Tongtiensanpham.getText().toString().trim();
-                Log.e("phong","tong tien la : "+tongtien);
+                Log.e("vpq","tong tien la : "+tongtien);
                 int tien=Integer.parseInt(tongtien);
                 if(tien!=0) {
                     Intent intent1 = new Intent(CartActicity.this, DiscountActivity.class);
@@ -100,7 +100,7 @@ public class CartActicity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(CartActicity.this, "bạn chưa check món hàng kìa", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CartActicity.this, "bạn chưa check món hàng", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -118,7 +118,7 @@ public class CartActicity extends AppCompatActivity {
                 }
                 else if(tongtien==0)
                 {
-                    Toast.makeText(CartActicity.this, "Bạn chưa check hang kia", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CartActicity.this, "Bạn chưa có mặt hàng nào", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {

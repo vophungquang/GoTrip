@@ -123,8 +123,8 @@ public class CartApdapter extends BaseAdapter {
                 int sotruyen=soluongdadoi-giuso;
                 finalViewHolder2.txtsoluongdamua.setText(""+soluongdadoi);
                 context.TongTien(null,cart.getGiasanpham()*sotruyen,0);
-                Log.e("phong","id don hang la : "+cart.getId());
-                Log.e("phong","so luong don hang la : "+soluongdadoi);
+                Log.e("vpq","id don hang la : "+cart.getId());
+                Log.e("vpq","so luong don hang la : "+soluongdadoi);
                 context.CapNhatDonHang(cart.getId(),soluongdadoi);
 
             }
@@ -144,8 +144,8 @@ public class CartApdapter extends BaseAdapter {
                         int sotruyen = giuso - soluongdadoi;
                         finalViewHolder2.txtsoluongdamua.setText("" + soluongdadoi);
                         context.TongTien(null, 0, cart.getGiasanpham() * sotruyen);
-                        Log.e("phong", "id don hang la : " + cart.getId());
-                        Log.e("phong", "so luong don hang la : " + soluongdadoi);
+                        Log.e("vpq", "id don hang la : " + cart.getId());
+                        Log.e("vpq", "so luong don hang la : " + soluongdadoi);
                         context.CapNhatDonHang(cart.getId(), soluongdadoi);
                     }
                     else

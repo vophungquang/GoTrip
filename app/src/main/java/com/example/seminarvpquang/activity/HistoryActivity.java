@@ -69,7 +69,7 @@ public class HistoryActivity extends AppCompatActivity {
         btndangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HistoryActivity.this,LoginActivity.class);
+                Intent intent = new Intent(HistoryActivity.this,SignInUser.class);
                 intent.putExtra("idProductType",1);
 
                 startActivityForResult(intent,REQUEST_CODE_USER);
@@ -164,7 +164,7 @@ public class HistoryActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                    Toast.makeText(HistoryActivity.this, "cartArrayList co size laf :"+cartArrayList.size(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HistoryActivity.this, "cartArrayList co size là :"+cartArrayList.size(), Toast.LENGTH_SHORT).show();
 
                     for (int j=0;j<cartArrayList.size();j++)
                     {
@@ -178,7 +178,7 @@ public class HistoryActivity extends AppCompatActivity {
                         }
 
                     }
-                    Toast.makeText(HistoryActivity.this, "cartArrayListFilter co size laf :"+cartArrayListFiler.size(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HistoryActivity.this, "vpq have :"+cartArrayListFiler.size(), Toast.LENGTH_SHORT).show();
                     int x=0;
                     for(int i=0;i<cartArrayListFiler.size()-1;i++)
                     {
@@ -194,7 +194,7 @@ public class HistoryActivity extends AppCompatActivity {
                             }
                         }
                     }
-                    Toast.makeText(HistoryActivity.this, "cartArrayListFilter co size laf :"+cartArrayListFiler.size(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HistoryActivity.this, "vpq have :"+cartArrayListFiler.size(), Toast.LENGTH_SHORT).show();
                     detailCartAdapter.notifyDataSetChanged();
 
                 }
@@ -214,7 +214,7 @@ public class HistoryActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_USER && resultCode == RESULT_OK && data != null) {
             String email = data.getStringExtra("email");
-            Log.e("phong","mang có bao nhieu phan tu"+userArrayList.size());
+            Log.e("vpq","mang có bao nhieu phan tu"+userArrayList.size());
             for(int i=0;i<userArrayList.size();i++)
             {
                 if(email.equals(userArrayList.get(i).getEmail()))

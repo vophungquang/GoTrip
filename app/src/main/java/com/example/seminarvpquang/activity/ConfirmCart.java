@@ -62,10 +62,7 @@ public class ConfirmCart extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(ConfirmCart.this, "Mua thanh cong", Toast.LENGTH_SHORT).show();
                 GetDataCart();
-
-
-
-
+                Intent intent = new Intent(ConfirmCart.this,HomeActivity.class);
             }
         });
         btnHuy.setOnClickListener(new View.OnClickListener() {

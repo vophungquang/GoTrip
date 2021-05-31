@@ -89,7 +89,7 @@
                     android:textColor="#BA1313"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:text="Shop Dai phong"
+                    android:text="VPQ"
                     android:layout_width="140dp"
                     android:layout_height="match_parent"/>
 

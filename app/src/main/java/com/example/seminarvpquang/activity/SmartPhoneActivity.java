@@ -19,7 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.seminarvpquang.R;
-import com.example.seminarvpquang.model.PhoneAdapter;
+import com.example.seminarvpquang.adapter.PhoneAdapter;
 import com.example.seminarvpquang.model.Product;
 import com.example.seminarvpquang.ultil.CheckConnection;
 import com.example.seminarvpquang.ultil.Server;

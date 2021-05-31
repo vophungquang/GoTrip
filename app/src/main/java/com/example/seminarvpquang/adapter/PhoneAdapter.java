@@ -1,4 +1,4 @@
-package com.example.seminarvpquang.model;
+package com.example.seminarvpquang.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.seminarvpquang.R;
 import com.example.seminarvpquang.activity.ProductDetailActivity;
 import com.example.seminarvpquang.activity.SmartPhoneActivity;
+import com.example.seminarvpquang.model.Product;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;

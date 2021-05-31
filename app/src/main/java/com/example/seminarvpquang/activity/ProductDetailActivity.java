@@ -130,7 +130,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         btndangnhapchitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProductDetailActivity.this,LoginActivity.class);
+                Intent intent = new Intent(ProductDetailActivity.this,SignInUser.class);
                 intent.putExtra("idProductType",1);
 
                 startActivityForResult(intent,REQUEST_CODE_USER);
@@ -140,23 +140,21 @@ public class ProductDetailActivity extends AppCompatActivity {
         buttonAddCartProductDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String chuoi=    txtsoluong.getText().toString();
-                int so=Integer.parseInt(chuoi);
+                String chuoi = txtsoluong.getText().toString();
+                int so = Integer.parseInt(chuoi);
                 if(btnShowUser.getText().toString().length()!=0&&btnShowUser.getText().toString()!=null) {
-                    if(so==0)
-                    {
-                        Toast.makeText(ProductDetailActivity.this,"Bạn phải thêm số lượng sản phẩm", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        themGioHang();
-                    }
-
+                if (so == 0) {
+                    Toast.makeText(ProductDetailActivity.this, "Bạn phải thêm số lượng sản phẩm", Toast.LENGTH_SHORT).show();
+                } else {
+                    themGioHang();
                 }
+
+            }
                 else{
                     Toast.makeText(ProductDetailActivity.this, "Bạn chưa đăng nhập ,vui lòng đăng nhập", Toast.LENGTH_SHORT).show();
 
                 }
-            }
+        }
         });
         imagegiohang.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,12 +163,13 @@ public class ProductDetailActivity extends AppCompatActivity {
                     Intent intent = new Intent(ProductDetailActivity.this, CartActicity.class);
                     intent.putExtra("idUser",idUserDangNhap);
                     startActivity(intent);
+//                startActivity(new Intent(ProductDetailActivity.this, CartActicity.class));
                 }
                 else{
                     Toast.makeText(ProductDetailActivity.this, "Bạn chưa đăng nhập ,vui lòng đăng nhập", Toast.LENGTH_SHORT).show();
 
                 }
-            }
+           }
         });
 
         imageViewMuiTen.setOnClickListener(new View.OnClickListener() {
@@ -199,6 +198,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                 Intent intent=new Intent(ProductDetailActivity.this,InformationUserActivity.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
+//                startActivity(new Intent(ProductDetailActivity.this, InformationUserActivity.class));
             }
         });
 
@@ -269,7 +269,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(ProductDetailActivity.this, "Da xay ra loi", Toast.LENGTH_SHORT).show();
-                        Log.d("aaa","Loi!\n"+error.toString());
+                        Log.d("vpq","Loi!\n"+error.toString());
                     }
                 }
         ){
@@ -442,7 +442,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_USER && resultCode == RESULT_OK && data != null) {
             String email = data.getStringExtra("email");
-            Log.e("phong","mang có bao nhieu phan tu"+userArrayList.size());
+            Log.e("vpq","mang có bao nhieu phan tu"+userArrayList.size());
             for(int i=0;i<userArrayList.size();i++)
             {
                 if(email.equals(userArrayList.get(i).getEmail()))
@@ -457,7 +457,6 @@ public class ProductDetailActivity extends AppCompatActivity {
                     btndangnhapchitiet.setVisibility(View.GONE);
                     buttonAddCartProductDetail.setEnabled(true);
                     imagegiohang.setEnabled(true);
-
 
                 }
             }

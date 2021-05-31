@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SeminarVPQuang">
         <activity android:name=".activity.ResetPassword"></activity>
+        <activity android:name=".activity.SignInUser"/>
         <activity android:name=".activity.CartActicity" />
         <activity android:name=".activity.ConfirmCart" />
         <activity android:name=".activity.HomeActivity" />
