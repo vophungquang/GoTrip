@@ -12,7 +12,7 @@
         android:layout_width="100dp"
         android:layout_height="70dp"/>
     <TextView
-        android:text="toi da bình luận"
+        android:text="nội dung bình luận"
         android:textSize="16dp"
         android:gravity="center"
         android:id="@+id/noidungdacomment"

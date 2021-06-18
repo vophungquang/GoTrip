@@ -26,7 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.seminarvpquang.R;
-import com.example.seminarvpquang.ultil.Server;
+import com.example.seminarvpquang.ultil.GoTrip;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -171,7 +171,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void dangkiBangUser()
     {
         RequestQueue requestQueue= Volley.newRequestQueue(this);
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, Server.insertUser,
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, GoTrip.insertUser,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

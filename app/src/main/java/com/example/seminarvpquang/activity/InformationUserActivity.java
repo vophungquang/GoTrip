@@ -19,7 +19,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.seminarvpquang.R;
 import com.example.seminarvpquang.model.User;
-import com.example.seminarvpquang.ultil.Server;
+import com.example.seminarvpquang.ultil.GoTrip;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -70,7 +70,7 @@ public class InformationUserActivity extends AppCompatActivity {
     }
     private  void capNhatUser(){
         RequestQueue requestQueue= Volley.newRequestQueue(this);
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, Server.updateUser,
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, GoTrip.updateUser,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

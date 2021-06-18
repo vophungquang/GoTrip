@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Thông tin khách hàng"
+            android:text="Thông tin cá nhân"
             android:textSize="25dp"
             android:textColor="@android:color/black"
             android:textStyle="bold"
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            android:hint="Nhập vào tên của khách hàng"/>
+            android:hint="Nhập tên"/>
 
 
         <EditText
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_margin="30dp"
             android:layout_height="wrap_content"
-            android:hint="Nhập vào dia chi của khách hàng"/>
+            android:hint="Nhập địa chỉ"/>
 
 
         <EditText
@@ -53,7 +53,7 @@
             android:layout_margin="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhập vào email của khách hàng"/>
+            android:hint="Nhập email"/>
 
         <LinearLayout
             android:layout_width="match_parent"

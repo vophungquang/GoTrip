@@ -21,20 +21,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ViewFlipper;
 
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.seminarvpquang.R;
-import com.example.seminarvpquang.adapter.ProductAdapter;
-import com.example.seminarvpquang.adapter.ProductTypeAdapter;
-import com.example.seminarvpquang.adapter.ProductTypeAdapter1;
-import com.example.seminarvpquang.model.Product;
-import com.example.seminarvpquang.model.ProductType;
+import com.example.seminarvpquang.adapter.PlaceAdapter;
+import com.example.seminarvpquang.adapter.PlaceTypeAdapter;
+import com.example.seminarvpquang.adapter.PlaceTypeAdapter1;
+import com.example.seminarvpquang.model.Place;
+import com.example.seminarvpquang.model.PlaceType;
 import com.example.seminarvpquang.ultil.CheckConnection;
-import com.example.seminarvpquang.ultil.Server;
+import com.example.seminarvpquang.ultil.GoTrip;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 
@@ -48,22 +47,22 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Toolbar toolbar;
     ViewFlipper viewFlipper;
-    ListView listViewProduct;
+    ListView listViewPlace;
     NavigationView navigationView;
     ListView listViewmanhinhchinh;
     DrawerLayout drawerLayout;
-    ArrayList<ProductType> arrayListProductType;
-    ProductTypeAdapter productTypeAdapter;
+    ArrayList<PlaceType> arrayListPlaceType;
+    PlaceTypeAdapter placeTypeAdapter;
 
-    ArrayList<ProductType> arrayListProductType1;
-    ProductTypeAdapter1 productTypeAdapter1;
+    ArrayList<PlaceType> arrayListPlaceType1;
+    PlaceTypeAdapter1 placeTypeAdapter1;
 
     int id = 0;
-    String namePT = "";
-    String imagePT = "";
+    String namePlace = "";
+    String imagePlace = "";
 
-    ArrayList<Product> arrayListProduct;
-    ProductAdapter productAdapter;
+    ArrayList<Place> arrayListPlace;
+    PlaceAdapter placeAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,8 +72,8 @@ public class HomeActivity extends AppCompatActivity {
         if (CheckConnection.haveNetworkConnection(getApplicationContext())){
             ActionBart();
             ActionViewFliper();
-            GetDataProductType();
-            GetDataProductNew();
+            GetDatapPlaceType();
+            GetDataPlaceNew();
             OnClickItemListView();
         }else {
             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -100,8 +99,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 1:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this,SmartPhoneActivity.class);
-                            intent.putExtra("idProductType",1);
+                            Intent intent = new Intent(HomeActivity.this, SaiGonActivity.class);
+                            intent.putExtra("idPlaceType",1);
 
                             startActivity(intent);
                         }else {
@@ -111,8 +110,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 2:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this,LaptopActivity.class);
-                            intent.putExtra("idProductType",arrayListProductType.get(position).getId());
+                            Intent intent = new Intent(HomeActivity.this, HaNoiActivity.class);
+                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -121,8 +120,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 3:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this,ShirtActivity.class);
-                            intent.putExtra("idProductType",arrayListProductType.get(position).getId());
+                            Intent intent = new Intent(HomeActivity.this, DaLatActivity.class);
+                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -131,8 +130,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 4:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this,TrousersActivity.class);
-                            intent.putExtra("idProductType",arrayListProductType.get(position).getId());
+                            Intent intent = new Intent(HomeActivity.this, HueActivity.class);
+                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -141,8 +140,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 5:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this,ShoesActivity.class);
-                            intent.putExtra("idProductType",arrayListProductType.get(position).getId());
+                            Intent intent = new Intent(HomeActivity.this, SaPaActivity.class);
+                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -151,8 +150,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 6:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this,WatchActivity.class);
-                            intent.putExtra("idProductType",arrayListProductType.get(position).getId());
+                            Intent intent = new Intent(HomeActivity.this, DaNangActivity.class);
+                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -162,8 +161,8 @@ public class HomeActivity extends AppCompatActivity {
 
                     case 7:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this,InformationTeam.class);
-                            intent.putExtra("idProductType",arrayListProductType.get(position).getId());
+                            Intent intent = new Intent(HomeActivity.this, AboutUs.class);
+                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -172,7 +171,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 8:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this,HistoryActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, FavouriteActivity.class);
 
                             startActivity(intent);
                         }else {
@@ -185,39 +184,33 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    public void GetDataProductNew() {
+    public void GetDataPlaceNew() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Server.pathNew,
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(GoTrip.pathNew,
                 new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 if (response != null){
                     int Id = 0;
-                    String nameProduct = "";
-                    Integer priceProduct = 0;
-                    String imageProduct = "";
-                    String descriptionProduct = "";
-                    int IdProduct = 0;
-                    int idthuonghieu=0;
-                    int sosanphamdaban=0;
-                    int sosanphamtonkho=0;
+                    String namePlace = "";
+                    String imagePlace = "";
+                    String descriptionPlace = "";
+                    int idPlace = 0;
+                    int doanhthu=0;
                     String diemdanhgia="";
                     for (int i = 0; i < response.length(); i++){
                         try {
                             JSONObject jsonObject = response.getJSONObject(i);
                             Id = jsonObject.getInt("id");
-                            nameProduct = jsonObject.getString("tensp");
-                            priceProduct = jsonObject.getInt("giasp");
-                            imageProduct = jsonObject.getString("hinhanhsp");
-                            descriptionProduct = jsonObject.getString("motasp");
-                            IdProduct = jsonObject.getInt("idsanpham");
-                            idthuonghieu=jsonObject.getInt("id_thuonghieu");
-                            sosanphamtonkho=jsonObject.getInt("sosanphamtonkho");
-                            sosanphamdaban=jsonObject.getInt("sosanphamdaban");
+                            namePlace = jsonObject.getString("tendiadiem");
+                            imagePlace = jsonObject.getString("hinhanhdiadiem");
+                            descriptionPlace = jsonObject.getString("motadiadiem");
+                            idPlace = jsonObject.getInt("iddiadiem");
+                            doanhthu=jsonObject.getInt("doanhthu");
                             diemdanhgia=jsonObject.getString("diemdanhgia");
-                            arrayListProduct.add(new Product(Id,nameProduct,priceProduct,
-                                    imageProduct,descriptionProduct,IdProduct,idthuonghieu,sosanphamdaban,sosanphamtonkho,diemdanhgia));
-                            productAdapter.notifyDataSetChanged();
+                            arrayListPlace.add(new Place(Id,namePlace,
+                                    imagePlace,descriptionPlace,idPlace,doanhthu,diemdanhgia));
+                            placeAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -233,9 +226,9 @@ public class HomeActivity extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
 
-    public void GetDataProductType() {
+    public void GetDatapPlaceType() {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Server.path,
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(GoTrip.path,
                 new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -244,19 +237,18 @@ public class HomeActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = response.getJSONObject(i);
                             id = jsonObject.getInt("id");
-                            namePT = jsonObject.getString("tenloaisp");
-                            imagePT = jsonObject.getString("hinhanhloaisanpham");
-                            arrayListProductType.add(new ProductType(id,namePT,imagePT));
-                            productTypeAdapter.notifyDataSetChanged();
-
-                            arrayListProductType1.add(new ProductType(id,namePT,imagePT));
-                            productTypeAdapter1.notifyDataSetChanged();
+                            namePlace = jsonObject.getString("tenloaidiadiem");
+                            imagePlace = jsonObject.getString("hinhloaidiadiem");
+                            arrayListPlaceType.add(new PlaceType(id,namePlace,imagePlace));
+                            placeTypeAdapter.notifyDataSetChanged();
+                            arrayListPlaceType1.add(new PlaceType(id,namePlace,imagePlace));
+                            placeTypeAdapter1.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-                    arrayListProductType.add(new ProductType(7,"Liên Hệ Shop","https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-12-512.png"));
-                    arrayListProductType.add(new ProductType(8,"Lịch Sử Mua Hàng","http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/128/User-group-icon.png"));
+                    arrayListPlaceType.add(new PlaceType(7,"ABOUT US","https://icon-library.com/images/about-us-icon-png/about-us-icon-png-14.jpg"));
+                    arrayListPlaceType.add(new PlaceType(8,"FAVOURITE CHOICE","https://png.pngtree.com/png-clipart/20190924/original/pngtree-favorite--icon-in-trendy-style-isolated-background-png-image_4859837.jpg"));
                 }
             }
         }, new Response.ErrorListener() {
@@ -280,12 +272,11 @@ public class HomeActivity extends AppCompatActivity {
         for(int i=0;i<mangquangcao.size();i++)
         {
             ImageView imageView=new ImageView((getApplicationContext()));
-//            Picasso.with(getApplicationContext()).load(mangquangcao.get(i)).into(imageView);
             Picasso.get().load(mangquangcao.get(i)).into(imageView);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             viewFlipper.addView(imageView);
         }
-        viewFlipper.setFlipInterval(5000);
+        viewFlipper.setFlipInterval(4000);
         viewFlipper.setAutoStart(true);
         Animation animation_slide_in= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_in_right);
         Animation animation_slide_out= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_out_right);
@@ -311,41 +302,33 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.listviewTheLoai);
         toolbar=findViewById(R.id.btnShowUser);
         viewFlipper=findViewById(R.id.viewlipper);
-        listViewProduct=findViewById(R.id.ListviewProduct);
+        listViewPlace=findViewById(R.id.listViewPlace);
         navigationView=findViewById(R.id.navigationview);
         listViewmanhinhchinh=findViewById(R.id.listviewManhinhchinh);
         drawerLayout=findViewById(R.id.drawerlayout);
-        arrayListProductType=new ArrayList<>();
-        arrayListProductType.add(0, new ProductType(0, "Trang Chủ","https://tse4.mm.bing.net/th?id=OIP.JCCq1sFqS_2xfar05oek_gHaHa&pid=Api&P=0&w=300&h=300"));
-        productTypeAdapter=new ProductTypeAdapter(arrayListProductType,getApplicationContext());
-        listViewmanhinhchinh.setAdapter(productTypeAdapter);
-        arrayListProduct = new ArrayList<Product>();
-        productAdapter = new ProductAdapter(this,R.layout.item_product_new,arrayListProduct);
+        arrayListPlaceType =new ArrayList<>();
+        arrayListPlaceType.add(0, new PlaceType(0, "Trang Chủ","http://ksit.com.vn/wp-content/uploads/2017/07/Home-icon.png"));
+        placeTypeAdapter =new PlaceTypeAdapter(arrayListPlaceType,getApplicationContext());
+        listViewmanhinhchinh.setAdapter(placeTypeAdapter);
+        arrayListPlace = new ArrayList<Place>();
+        placeAdapter = new PlaceAdapter(this,R.layout.item_place_new, arrayListPlace);
 
-        listViewProduct.setAdapter(productAdapter);
+        listViewPlace.setAdapter(placeAdapter);
 
-        arrayListProductType1=new ArrayList<>();
+        arrayListPlaceType1 =new ArrayList<>();
 
-        productTypeAdapter1=new ProductTypeAdapter1(arrayListProductType1,this);
+        placeTypeAdapter1 =new PlaceTypeAdapter1(arrayListPlaceType1,this);
 
 
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-//        DividerItemDecoration dividerItemDecoration=new DividerItemDecoration(this,layoutManager.getOrientation());
-//        recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setLayoutManager(layoutManager);
         DividerItemDecoration dividerItemDecoration=new DividerItemDecoration(recyclerView.getContext(),DividerItemDecoration.HORIZONTAL);
-
-        DividerItemDecoration dividerItemDecoration1=new DividerItemDecoration(recyclerView.getContext(),DividerItemDecoration.VERTICAL);
-
+//        DividerItemDecoration dividerItemDecoration1=new DividerItemDecoration(recyclerView.getContext(),DividerItemDecoration.VERTICAL);
         Drawable drawable= ContextCompat.getDrawable(getApplicationContext(),R.drawable.custom_mau);
-
-
         dividerItemDecoration.setDrawable(drawable);
-
-
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(productTypeAdapter1);
+        recyclerView.setAdapter(placeTypeAdapter1);
     }
 }

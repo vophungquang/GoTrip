@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/dongcartnene"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+
+
+
+        <ImageView
+            android:id="@+id/imageHinh"
+            android:layout_width="150dp"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Phụng Quang thật đẹp"
+                android:textColor="#ff000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textviewdanhgia"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:gravity="center"-->
+<!--                android:text="5 sao"-->
+<!--                android:textColor="#ff000000"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
+            <TextView
+                android:id="@+id/textviewdes"
+                android:gravity="center"
+                android:text="đáng để đi"
+                android:textColor="#ff000000"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+
+
+
+
+            <TextView
+                android:id="@+id/textviewdanhgia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F4E8E8"
+                android:gravity="center"
+                android:text="5 sao"
+                android:textStyle="bold" />
+
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

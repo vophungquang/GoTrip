@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.seminarvpquang.R;
-import com.example.seminarvpquang.activity.ProductDetailActivity;
+import com.example.seminarvpquang.activity.PlaceDetailActivity;
 import com.example.seminarvpquang.model.Comment;
 
 
@@ -16,11 +16,11 @@ import java.util.ArrayList;
 
 public class CommentAdapter extends BaseAdapter {
     int x = 0;
-    private ProductDetailActivity context;
+    private PlaceDetailActivity context;
     private int layout;
     private ArrayList<Comment> arrayComment;
 
-    public CommentAdapter(ProductDetailActivity context, int layout, ArrayList<Comment> arrayComment) {
+    public CommentAdapter(PlaceDetailActivity context, int layout, ArrayList<Comment> arrayComment) {
         this.context = context;
         this.layout = layout;
         this.arrayComment = arrayComment;

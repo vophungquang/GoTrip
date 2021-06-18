@@ -3,13 +3,13 @@ package com.example.seminarvpquang.model;
 public class Comment {
     int id ;
     String username;;
-    String tensanpham;
+    String tendiadiem;
     String content;
 
-    public Comment(int id, String username, String tensanpham, String content) {
+    public Comment(int id, String username, String tendiadiem, String content) {
         this.id = id;
         this.username = username;
-        this.tensanpham = tensanpham;
+        this.tendiadiem = tendiadiem;
         this.content = content;
     }
 
@@ -29,12 +29,12 @@ public class Comment {
         this.username = username;
     }
 
-    public String getTensanpham() {
-        return tensanpham;
+    public String gettendiadiem() {
+        return tendiadiem;
     }
 
-    public void setTensanpham(String tensanpham) {
-        this.tensanpham = tensanpham;
+    public void settendiadiem(String tendiadiem) {
+        this.tendiadiem = tendiadiem;
     }
 
     public String getContent() {
