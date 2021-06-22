@@ -111,7 +111,7 @@ public class HomeActivity extends AppCompatActivity {
                     case 2:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
                             Intent intent = new Intent(HomeActivity.this, HaNoiActivity.class);
-                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
+                            intent.putExtra("idPlaceType", 2);
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -121,7 +121,7 @@ public class HomeActivity extends AppCompatActivity {
                     case 3:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
                             Intent intent = new Intent(HomeActivity.this, DaLatActivity.class);
-                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
+                            intent.putExtra("idPlaceType", 3);
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -131,7 +131,7 @@ public class HomeActivity extends AppCompatActivity {
                     case 4:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
                             Intent intent = new Intent(HomeActivity.this, HueActivity.class);
-                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
+                            intent.putExtra("idPlaceType", 4);
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -141,7 +141,7 @@ public class HomeActivity extends AppCompatActivity {
                     case 5:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
                             Intent intent = new Intent(HomeActivity.this, SaPaActivity.class);
-                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
+                            intent.putExtra("idPlaceType", 5);
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -151,7 +151,7 @@ public class HomeActivity extends AppCompatActivity {
                     case 6:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
                             Intent intent = new Intent(HomeActivity.this, DaNangActivity.class);
-                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
+                            intent.putExtra("idPlaceType", 6);
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -162,7 +162,7 @@ public class HomeActivity extends AppCompatActivity {
                     case 7:
                         if (CheckConnection.haveNetworkConnection(getApplication())){
                             Intent intent = new Intent(HomeActivity.this, AboutUs.class);
-                            intent.putExtra("idPlaceType", arrayListPlaceType.get(position).getId());
+                            intent.putExtra("idPlaceType", 7);
                             startActivity(intent);
                         }else {
                             CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");

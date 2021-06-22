@@ -58,7 +58,6 @@ public class PlaceTypeAdapter extends BaseAdapter {
         }
         PlaceType placeType = (PlaceType) getItem(position);
         viewHolder.textViewProductType.setText(placeType.getnamePlace());
-//        Picasso.with(context).load(placeType.getimagePlace()).into(viewHolder.imageViewPlaceType);
         Picasso.get().load(placeType.getimagePlace()).into(viewHolder.imageViewPlaceType);
         return view;
     }

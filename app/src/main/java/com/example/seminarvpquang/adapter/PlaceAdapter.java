@@ -59,8 +59,8 @@ public class PlaceAdapter extends BaseAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout, null);
-            holder.imageViewPlace =  view.findViewById(R.id.imageViewPlace);
-            holder.textViewNamePlace = view.findViewById(R.id.textViewNamePlace);
+            holder.imageViewPlace =  view.findViewById(R.id.imageViewnew);
+            holder.textViewNamePlace = view.findViewById(R.id.textViewNamenew);
             holder.textviewdanhgiandiem=view.findViewById(R.id.textviewdanhgiandiem);
             holder.textViewDoanhThu=view.findViewById(R.id.textviewdoanhthu);
             holder.textViewMoTa=view.findViewById(R.id.textviewmota);

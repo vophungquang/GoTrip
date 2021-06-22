@@ -25,18 +25,15 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.seminarvpquang.R;
 import com.example.seminarvpquang.adapter.CommentAdapter;
-import com.example.seminarvpquang.model.Place;
 import com.example.seminarvpquang.model.Comment;
 import com.example.seminarvpquang.model.User;
 import com.example.seminarvpquang.ultil.CheckConnection;
 import com.example.seminarvpquang.ultil.GoTrip;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,7 +43,7 @@ import java.util.Map;
 public class PlaceDetailActivity extends AppCompatActivity {
 
     Toolbar btnToolbar;
-    ImageView imageViewPlaceDetail,imghinhne,imageViewMuiTen,imagegiohang,imgbinhluanUser;
+    ImageView imageViewPlaceDetail,imghinhne,imageViewMuiTen,imgbinhluanUser;
     TextView textViewNamePlaceDetail,textViewDescriptionPlaceDetail,txtdiemdanhgia;
     int REQUEST_CODE_USER=123;
     Button buttonShowMap,btndangnhapchitiet,btnShowUser,btnExitUser;
@@ -83,13 +80,12 @@ public class PlaceDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_detail);
+        setContentView(R.layout.activity_place_detail);
         init();
         GetDataUsers();
 //        GetDataProductDetail();
 
         imageViewMuiTen.setImageResource(R.drawable.muiten);
-        imagegiohang.setImageResource(R.drawable.giohang);
         imghinhne.setImageResource(R.drawable.caybut);
         imgbinhluanUser.setImageResource(R.drawable.comment);
         GetDataComment(tendiadiembinhluan);
