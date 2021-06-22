@@ -73,7 +73,6 @@ public class HaNoiAdapter extends BaseAdapter {
         final Place place = (Place) arraListPlace.get(i);
         viewHolder.textViewName.setText(place.getnamePlace());
         viewHolder.textViewName.setSelected(true);
-        viewHolder.textViewVote.setText(place.getPriceProduct());
         viewHolder.textViewDescription.setMaxLines(2);
         viewHolder.textViewDescription.setEllipsize(TextUtils.TruncateAt.END);
         viewHolder.textViewDescription.setText(place.getdescriptionPlace());

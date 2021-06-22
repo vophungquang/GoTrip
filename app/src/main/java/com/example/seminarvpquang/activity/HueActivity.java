@@ -107,13 +107,12 @@ public class HueActivity extends AppCompatActivity {
 
                 for(int i=0;i<arrayListHue.size();i++)
                 {
-                    if(arrayListHue.get(i).getidPlace()==idHue)
+                    if(arrayListHue.get(i).getidPlace()==4)
                     {
                         getarrayListHueFilter.add(new Place(arrayListHue.get(i).getId(),arrayListHue.get(i).getnamePlace()
-                                ,arrayListHue.get(i).getPriceProduct(),arrayListHue.get(i).getimagePlace()
+                                ,arrayListHue.get(i).getimagePlace()
                                 ,arrayListHue.get(i).getdescriptionPlace(),arrayListHue.get(i).getidPlace(),
-                                arrayListHue.get(i).getdoanhthu(),
-                                arrayListHue.get(i).getmota(),arrayListHue.get(i).getDiemdanhgia()));
+                                arrayListHue.get(i).getdoanhthu(), arrayListHue.get(i).getDiemdanhgia()));
                     }
                 }
                 Toast.makeText(HueActivity.this, getarrayListHueFilter.size()+"", Toast.LENGTH_SHORT).show();

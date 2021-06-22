@@ -125,10 +125,9 @@ public class SaiGonActivity extends AppCompatActivity {
                     {
 
                         arrayListSGFilter.add(new Place(arrayListSG.get(i).getId(),arrayListSG.get(i).getnamePlace()
-                                ,arrayListSG.get(i).getPriceProduct(),arrayListSG.get(i).getimagePlace()
+                                ,arrayListSG.get(i).getimagePlace()
                                 ,arrayListSG.get(i).getdescriptionPlace(),arrayListSG.get(i).getidPlace(),
-                                arrayListSG.get(i).getdoanhthu(),
-                                arrayListSG.get(i).getmota(),arrayListSG.get(i).getDiemdanhgia()));
+                                arrayListSG.get(i).getdoanhthu(), arrayListSG.get(i).getDiemdanhgia()));
                     }
                 }
 

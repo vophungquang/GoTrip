@@ -46,7 +46,6 @@ public class PlaceTypeAdapter1 extends RecyclerView.Adapter<PlaceTypeAdapter1.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.txtNameType.setText(datashops.get(position).getnamePlace());
-//        Picasso.with(context).load(datashops.get(position).getimagePlace()).into(holder.imgHinhAnh);
         Picasso.get().load(datashops.get(position).getimagePlace()).into(holder.imgHinhAnh);
         PlaceType placeType =datashops.get(position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

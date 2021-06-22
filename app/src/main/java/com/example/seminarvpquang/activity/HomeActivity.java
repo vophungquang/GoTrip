@@ -84,102 +84,99 @@ public class HomeActivity extends AppCompatActivity {
 
     }
     private void OnClickItemListView() {
-        listViewmanhinhchinh.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
-                    case 0:
-                        if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this,HomeActivity.class);
-                            startActivity(intent);
-                        }else {
-                            CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
-                        }
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                    case 1:
-                        if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this, SaiGonActivity.class);
-                            intent.putExtra("idPlaceType",1);
+        listViewmanhinhchinh.setOnItemClickListener((parent, view, position, id) -> {
+            switch (position){
+                case 0:
+                    if (CheckConnection.haveNetworkConnection(getApplication())){
+                        Intent intent = new Intent(HomeActivity.this,HomeActivity.class);
+                        startActivity(intent);
+                    }else {
+                        CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
+                    }
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case 1:
+                    if (CheckConnection.haveNetworkConnection(getApplication())){
+                        Intent intent = new Intent(HomeActivity.this, SaiGonActivity.class);
+                        intent.putExtra("idPlaceType",1);
 
-                            startActivity(intent);
-                        }else {
-                            CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
-                        }
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                    case 2:
-                        if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this, HaNoiActivity.class);
-                            intent.putExtra("idPlaceType", 2);
-                            startActivity(intent);
-                        }else {
-                            CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
-                        }
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                    case 3:
-                        if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this, DaLatActivity.class);
-                            intent.putExtra("idPlaceType", 3);
-                            startActivity(intent);
-                        }else {
-                            CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
-                        }
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                    case 4:
-                        if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this, HueActivity.class);
-                            intent.putExtra("idPlaceType", 4);
-                            startActivity(intent);
-                        }else {
-                            CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
-                        }
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                    case 5:
-                        if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this, SaPaActivity.class);
-                            intent.putExtra("idPlaceType", 5);
-                            startActivity(intent);
-                        }else {
-                            CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
-                        }
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                    case 6:
-                        if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this, DaNangActivity.class);
-                            intent.putExtra("idPlaceType", 6);
-                            startActivity(intent);
-                        }else {
-                            CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
-                        }
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
+                        startActivity(intent);
+                    }else {
+                        CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
+                    }
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case 2:
+                    if (CheckConnection.haveNetworkConnection(getApplication())){
+                        Intent intent = new Intent(HomeActivity.this, HaNoiActivity.class);
+                        intent.putExtra("idPlaceType", 2);
+                        startActivity(intent);
+                    }else {
+                        CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
+                    }
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case 3:
+                    if (CheckConnection.haveNetworkConnection(getApplication())){
+                        Intent intent = new Intent(HomeActivity.this, DaLatActivity.class);
+                        intent.putExtra("idPlaceType", 3);
+                        startActivity(intent);
+                    }else {
+                        CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
+                    }
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case 4:
+                    if (CheckConnection.haveNetworkConnection(getApplication())){
+                        Intent intent = new Intent(HomeActivity.this, HueActivity.class);
+                        intent.putExtra("idPlaceType", 4);
+                        startActivity(intent);
+                    }else {
+                        CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
+                    }
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case 5:
+                    if (CheckConnection.haveNetworkConnection(getApplication())){
+                        Intent intent = new Intent(HomeActivity.this, SaPaActivity.class);
+                        intent.putExtra("idPlaceType", 5);
+                        startActivity(intent);
+                    }else {
+                        CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
+                    }
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case 6:
+                    if (CheckConnection.haveNetworkConnection(getApplication())){
+                        Intent intent = new Intent(HomeActivity.this, DaNangActivity.class);
+                        intent.putExtra("idPlaceType", 6);
+                        startActivity(intent);
+                    }else {
+                        CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
+                    }
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
 
-                    case 7:
-                        if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this, AboutUs.class);
-                            intent.putExtra("idPlaceType", 7);
-                            startActivity(intent);
-                        }else {
-                            CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
-                        }
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                    case 8:
-                        if (CheckConnection.haveNetworkConnection(getApplication())){
-                            Intent intent = new Intent(HomeActivity.this, FavouriteActivity.class);
+                case 7:
+                    if (CheckConnection.haveNetworkConnection(getApplication())){
+                        Intent intent = new Intent(HomeActivity.this, AboutUs.class);
+                        intent.putExtra("idPlaceType", 7);
+                        startActivity(intent);
+                    }else {
+                        CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
+                    }
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case 8:
+                    if (CheckConnection.haveNetworkConnection(getApplication())){
+                        Intent intent = new Intent(HomeActivity.this, FavouriteActivity.class);
 
-                            startActivity(intent);
-                        }else {
-                            CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
-                        }
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                }
+                        startActivity(intent);
+                    }else {
+                        CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
+                    }
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
             }
         });
     }
@@ -187,76 +184,59 @@ public class HomeActivity extends AppCompatActivity {
     public void GetDataPlaceNew() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(GoTrip.pathNew,
-                new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                if (response != null){
-                    int Id = 0;
-                    String namePlace = "";
-                    String imagePlace = "";
-                    String descriptionPlace = "";
-                    int idPlace = 0;
-                    int doanhthu=0;
-                    String diemdanhgia="";
-                    for (int i = 0; i < response.length(); i++){
-                        try {
-                            JSONObject jsonObject = response.getJSONObject(i);
-                            Id = jsonObject.getInt("id");
-                            namePlace = jsonObject.getString("tendiadiem");
-                            imagePlace = jsonObject.getString("hinhanhdiadiem");
-                            descriptionPlace = jsonObject.getString("motadiadiem");
-                            idPlace = jsonObject.getInt("iddiadiem");
-                            doanhthu=jsonObject.getInt("doanhthu");
-                            diemdanhgia=jsonObject.getString("diemdanhgia");
-                            arrayListPlace.add(new Place(Id,namePlace,
-                                    imagePlace,descriptionPlace,idPlace,doanhthu,diemdanhgia));
-                            placeAdapter.notifyDataSetChanged();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                response -> {
+                    if (response != null){
+                        int Id = 0;
+                        String namePlace = "";
+                        String imagePlace = "";
+                        String descriptionPlace = "";
+                        int idPlace = 0;
+                        int doanhthu=0;
+                        String diemdanhgia="";
+                        for (int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                Id = jsonObject.getInt("id");
+                                namePlace = jsonObject.getString("tendiadiem");
+                                imagePlace = jsonObject.getString("hinhanhdiadiem");
+                                descriptionPlace = jsonObject.getString("motadiadiem");
+                                idPlace = jsonObject.getInt("iddiadiem");
+                                doanhthu=jsonObject.getInt("doanhthu");
+                                diemdanhgia=jsonObject.getString("diemdanhgia");
+                                arrayListPlace.add(new Place(Id,namePlace,imagePlace,descriptionPlace,idPlace,doanhthu,diemdanhgia));
+                                placeAdapter.notifyDataSetChanged();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                CheckConnection.ShowToast_Short(getApplicationContext(), error.toString());
-            }
-        });
+                }, error -> CheckConnection.ShowToast_Short(getApplicationContext(), error.toString()));
         requestQueue.add(jsonArrayRequest);
     }
 
     public void GetDatapPlaceType() {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(GoTrip.path,
-                new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                if (response != null){
-                    for (int i = 0; i < response.length(); i++){
-                        try {
-                            JSONObject jsonObject = response.getJSONObject(i);
-                            id = jsonObject.getInt("id");
-                            namePlace = jsonObject.getString("tenloaidiadiem");
-                            imagePlace = jsonObject.getString("hinhloaidiadiem");
-                            arrayListPlaceType.add(new PlaceType(id,namePlace,imagePlace));
-                            placeTypeAdapter.notifyDataSetChanged();
-                            arrayListPlaceType1.add(new PlaceType(id,namePlace,imagePlace));
-                            placeTypeAdapter1.notifyDataSetChanged();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                response -> {
+                    if (response != null){
+                        for (int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                id = jsonObject.getInt("id");
+                                namePlace = jsonObject.getString("tenloaidiadiem");
+                                imagePlace = jsonObject.getString("hinhloaidiadiem");
+                                arrayListPlaceType.add(new PlaceType(id,namePlace,imagePlace));
+                                placeTypeAdapter.notifyDataSetChanged();
+                                arrayListPlaceType1.add(new PlaceType(id,namePlace,imagePlace));
+                                placeTypeAdapter1.notifyDataSetChanged();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
+                        arrayListPlaceType.add(new PlaceType(7,"ABOUT US","https://icon-library.com/images/about-us-icon-png/about-us-icon-png-14.jpg"));
+                        arrayListPlaceType.add(new PlaceType(8,"FAVOURITE CHOICE","https://png.pngtree.com/png-clipart/20190924/original/pngtree-favorite--icon-in-trendy-style-isolated-background-png-image_4859837.jpg"));
                     }
-                    arrayListPlaceType.add(new PlaceType(7,"ABOUT US","https://icon-library.com/images/about-us-icon-png/about-us-icon-png-14.jpg"));
-                    arrayListPlaceType.add(new PlaceType(8,"FAVOURITE CHOICE","https://png.pngtree.com/png-clipart/20190924/original/pngtree-favorite--icon-in-trendy-style-isolated-background-png-image_4859837.jpg"));
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                CheckConnection.ShowToast_Short(getApplicationContext(), error.toString());
-            }
-        });
+                }, error -> CheckConnection.ShowToast_Short(getApplicationContext(), error.toString()));
         requestQueue.add(jsonArrayRequest);
     }
 
@@ -290,12 +270,7 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
     }
 
     private  void AnhXa(){

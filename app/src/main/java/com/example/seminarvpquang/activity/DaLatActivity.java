@@ -108,11 +108,9 @@ public class DaLatActivity extends AppCompatActivity {
                 {
                     if(arrayListDL.get(i).getidPlace()==3)
                     {
-                        arrayListDLFilter.add(new Place(arrayListDL.get(i).getId(),arrayListDL.get(i).getnamePlace()
-                                ,arrayListDL.get(i).getPriceProduct(),arrayListDL.get(i).getimagePlace()
+                        arrayListDLFilter.add(new Place(arrayListDL.get(i).getId(),arrayListDL.get(i).getnamePlace(),arrayListDL.get(i).getimagePlace()
                                 ,arrayListDL.get(i).getdescriptionPlace(),arrayListDL.get(i).getidPlace(),
-                                arrayListDL.get(i).getdoanhthu(),
-                                arrayListDL.get(i).getmota(),arrayListDL.get(i).getDiemdanhgia()));
+                                arrayListDL.get(i).getdoanhthu(),arrayListDL.get(i).getDiemdanhgia()));
                     }
                 }
                 Toast.makeText(DaLatActivity.this, arrayListDLFilter.size()+"", Toast.LENGTH_SHORT).show();

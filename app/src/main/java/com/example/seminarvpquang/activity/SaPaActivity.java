@@ -107,13 +107,12 @@ public class SaPaActivity extends AppCompatActivity {
 
                 for(int i=0;i<arraySaPa.size();i++)
                 {
-                    if(arraySaPa.get(i).getidPlace()==idSaPa)
+                    if(arraySaPa.get(i).getidPlace()==5)
                     {
                         arrayListSaPaFilter.add(new Place(arraySaPa.get(i).getId(),arraySaPa.get(i).getnamePlace()
-                                ,arraySaPa.get(i).getPriceProduct(),arraySaPa.get(i).getimagePlace()
+                                ,arraySaPa.get(i).getimagePlace()
                                 ,arraySaPa.get(i).getdescriptionPlace(),arraySaPa.get(i).getidPlace(),
-                                arraySaPa.get(i).getdoanhthu(),
-                                arraySaPa.get(i).getmota(),arraySaPa.get(i).getDiemdanhgia()));
+                                arraySaPa.get(i).getdoanhthu(), arraySaPa.get(i).getDiemdanhgia()));
                     }
                 }
                 Toast.makeText(SaPaActivity.this, arrayListSaPaFilter.size()+"", Toast.LENGTH_SHORT).show();

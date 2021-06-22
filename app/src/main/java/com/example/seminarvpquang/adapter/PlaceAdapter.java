@@ -74,7 +74,7 @@ public class PlaceAdapter extends BaseAdapter {
                 .into(holder.imageViewPlace);
         holder.textviewdanhgiandiem.setText(place.getDiemdanhgia()+"");
         holder.textViewDoanhThu.setText(place.getdoanhthu()+"");
-        holder.textViewMoTa.setText(place.getmota()+"");
+        holder.textViewMoTa.setText(place.getdescriptionPlace()+"");
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

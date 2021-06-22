@@ -97,9 +97,9 @@ public class HaNoiActivity extends AppCompatActivity {
                     if(arrayListHN.get(i).getidPlace()==2)
                     {
                         arrayListHNFilter.add(new Place(arrayListHN.get(i).getId(),arrayListHN.get(i).getnamePlace()
-                                ,arrayListHN.get(i).getPriceProduct(),arrayListHN.get(i).getimagePlace()
+                                ,arrayListHN.get(i).getimagePlace()
                                 ,arrayListHN.get(i).getdescriptionPlace(),arrayListHN.get(i).getidPlace(), arrayListHN.get(i).getdoanhthu(),
-                                arrayListHN.get(i).getmota(),arrayListHN.get(i).getDiemdanhgia()));
+                                arrayListHN.get(i).getDiemdanhgia()));
                     }
                 }
                 Toast.makeText(HaNoiActivity.this, arrayListHNFilter.size()+"", Toast.LENGTH_SHORT).show();

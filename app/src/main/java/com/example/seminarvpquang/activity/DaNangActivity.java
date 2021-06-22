@@ -104,13 +104,12 @@ public class DaNangActivity extends AppCompatActivity {
 
                 for(int i=0;i<arrayListDN.size();i++)
                 {
-                    if(arrayListDN.get(i).getidPlace()==idDN)
+                    if(arrayListDN.get(i).getidPlace()==6)
                     {
                         arrayListDNFilter.add(new Place(arrayListDN.get(i).getId(),arrayListDN.get(i).getnamePlace()
-                                ,arrayListDN.get(i).getPriceProduct(),arrayListDN.get(i).getimagePlace()
+                                ,arrayListDN.get(i).getimagePlace()
                                 ,arrayListDN.get(i).getdescriptionPlace(),arrayListDN.get(i).getidPlace(),
-                                arrayListDN.get(i).getdoanhthu(),
-                                arrayListDN.get(i).getmota(),arrayListDN.get(i).getDiemdanhgia()));
+                                arrayListDN.get(i).getdoanhthu(), arrayListDN.get(i).getDiemdanhgia()));
                     }
                 }
                 Toast.makeText(DaNangActivity.this, arrayListDNFilter.size()+"", Toast.LENGTH_SHORT).show();
