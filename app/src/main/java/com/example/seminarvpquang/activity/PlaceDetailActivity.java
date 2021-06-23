@@ -55,10 +55,6 @@ public class PlaceDetailActivity extends AppCompatActivity {
     EditText binhluanUser;
     User user;
     int id = 0;
-    String name = "";
-    String image = "";
-    String description = "";
-    String diemdanhgia="";
 
     //comment
     int idcm=0;
@@ -83,7 +79,6 @@ public class PlaceDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_place_detail);
         init();
         GetDataUsers();
-//        GetDataProductDetail();
 
         imageViewMuiTen.setImageResource(R.drawable.muiten);
         imghinhne.setImageResource(R.drawable.caybut);
@@ -93,6 +88,13 @@ public class PlaceDetailActivity extends AppCompatActivity {
         if(btnShowUser.getText().length()!=0) {
             binhluanUser.setEnabled(true);
         }
+        buttonShowMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlaceDetailActivity.this,GgMapsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btndangnhapchitiet.setOnClickListener(new View.OnClickListener() {
             @Override

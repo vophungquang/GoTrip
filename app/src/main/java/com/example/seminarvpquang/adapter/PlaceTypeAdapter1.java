@@ -27,7 +27,6 @@ public class PlaceTypeAdapter1 extends RecyclerView.Adapter<PlaceTypeAdapter1.Vi
 
     ArrayList<PlaceType> datashops;
     HomeActivity context;
-    static int i=0;
     public PlaceTypeAdapter1(ArrayList<PlaceType> datashops, HomeActivity context) {
         this.datashops = datashops;
         this.context = context;
@@ -56,37 +55,37 @@ public class PlaceTypeAdapter1 extends RecyclerView.Adapter<PlaceTypeAdapter1.Vi
                 {
                     case 0:{
                         Intent intent = new Intent(context, SaiGonActivity.class);
-                        intent.putExtra("idPlaceType", placeType.getId());
+                        intent.putExtra("idPlaceType", 1);
                         context.startActivity(intent);
                         break;
                     }
                     case 1:{
                         Intent intent = new Intent(context, HaNoiActivity.class);
-                        intent.putExtra("idPlaceType", placeType.getId());
+                        intent.putExtra("idPlaceType", 2);
                         context.startActivity(intent);
                         break;
                     }
                     case 2:{
                         Intent intent = new Intent(context, DaLatActivity.class);
-                        intent.putExtra("idPlaceType", placeType.getId());
+                        intent.putExtra("idPlaceType", 3);
                         context.startActivity(intent);
                         break;
                     }
                     case 3:{
                         Intent intent = new Intent(context, HueActivity.class);
-                        intent.putExtra("idPlaceType", placeType.getId());
+                        intent.putExtra("idPlaceType", 4);
                         context.startActivity(intent);
                         break;
                     }
                     case 4:{
                         Intent intent = new Intent(context, SaPaActivity.class);
-                        intent.putExtra("idPlaceType", placeType.getId());
+                        intent.putExtra("idPlaceType", 5);
                         context.startActivity(intent);
                         break;
                     }
                     case 5:{
                         Intent intent = new Intent(context, DaNangActivity.class);
-                        intent.putExtra("idPlaceType", placeType.getId());
+                        intent.putExtra("idPlaceType", 6);
                         context.startActivity(intent);
                         break;
                     }

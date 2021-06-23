@@ -170,7 +170,6 @@ public class HomeActivity extends AppCompatActivity {
                 case 8:
                     if (CheckConnection.haveNetworkConnection(getApplication())){
                         Intent intent = new Intent(HomeActivity.this, FavouriteActivity.class);
-
                         startActivity(intent);
                     }else {
                         CheckConnection.ShowToast_Short(getApplicationContext(),"Please check the connection again!");
@@ -233,8 +232,8 @@ public class HomeActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         }
-                        arrayListPlaceType.add(new PlaceType(7,"ABOUT US","https://icon-library.com/images/about-us-icon-png/about-us-icon-png-14.jpg"));
-                        arrayListPlaceType.add(new PlaceType(8,"FAVOURITE CHOICE","https://png.pngtree.com/png-clipart/20190924/original/pngtree-favorite--icon-in-trendy-style-isolated-background-png-image_4859837.jpg"));
+                        arrayListPlaceType.add(new PlaceType(7,"About Us","https://icon-library.com/images/about-us-icon-png/about-us-icon-png-14.jpg"));
+                        arrayListPlaceType.add(new PlaceType(8,"Favourite Choice","https://png.pngtree.com/png-clipart/20190924/original/pngtree-favorite--icon-in-trendy-style-isolated-background-png-image_4859837.jpg"));
                     }
                 }, error -> CheckConnection.ShowToast_Short(getApplicationContext(), error.toString()));
         requestQueue.add(jsonArrayRequest);

@@ -1,9 +1,6 @@
 package com.example.seminarvpquang.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.seminarvpquang.R;
-import com.example.seminarvpquang.activity.HomeActivity;
 import com.example.seminarvpquang.activity.PlaceDetailActivity;
 import com.example.seminarvpquang.model.Place;
 import com.squareup.picasso.Picasso;
@@ -20,14 +16,14 @@ import com.squareup.picasso.Picasso;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class PlaceAdapter extends BaseAdapter {
+public class DetailPlaceAdapter extends BaseAdapter {
     int x = 0;
-    private HomeActivity context;
+    private PlaceDetailActivity context;
     private int layout;
     private ArrayList<Place> arrayPlace;
 
-    public PlaceAdapter(Activity context, int layout, ArrayList<Place> subjectsList) {
-        this.context = (HomeActivity) context;
+    public DetailPlaceAdapter(PlaceDetailActivity context, int layout, ArrayList<Place> subjectsList) {
+        this.context = context;
         this.layout = layout;
         this.arrayPlace = subjectsList;
     }
@@ -49,8 +45,7 @@ public class PlaceAdapter extends BaseAdapter {
 
     private class ViewHolder {
         public ImageView imageViewPlace;
-        public TextView textViewNamePlace,textviewdanhgiandiem,textViewDoanhThu,textViewMoTa;
-
+        public TextView textViewNamePlacet, textViewDoanhThu;
     }
 
     @Override
@@ -61,35 +56,20 @@ public class PlaceAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout, null);
             holder.imageViewPlace =  view.findViewById(R.id.imageViewnew);
-            holder.textViewNamePlace = view.findViewById(R.id.textViewNamenew);
-            holder.textviewdanhgiandiem=view.findViewById(R.id.textviewdanhgiandiem);
-            holder.textViewDoanhThu=view.findViewById(R.id.textviewdoanhthu);
-            holder.textViewMoTa=view.findViewById(R.id.textviewmota);
+            holder.textViewNamePlacet = view.findViewById(R.id.textViewNamenew);
+            holder.textViewDoanhThu =  view.findViewById(R.id.textviewdoanhthu);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
         final Place place = arrayPlace.get(i);
-        holder.textViewNamePlace.setText(place.getnamePlace());
-        Picasso.get().load(place.getimagePlace())
-                .into(holder.imageViewPlace);
-        holder.textviewdanhgiandiem.setText(place.getDiemdanhgia()+"");
+        int x =arrayPlace.get(i).getId();
+        holder.textViewNamePlacet.setText(place.getnamePlace());
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         holder.textViewDoanhThu.setText("Price : " + decimalFormat
                 .format(place.getdoanhthu()) + "VND");
-        holder.textViewMoTa.setMaxLines(2);
-        holder.textViewMoTa.setEllipsize(TextUtils.TruncateAt.END);
-        holder.textViewMoTa.setText(place.getdescriptionPlace()+"");
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(context, PlaceDetailActivity.class);
-                intent.putExtra("information", place);
-                context.startActivity(intent);
-            }
-        });
-
+        Picasso.get().load(place.getimagePlace())
+                .into(holder.imageViewPlace);
         return view;
     }
 }
-

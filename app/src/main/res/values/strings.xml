@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GOTRIP</string>
+    <string name="title_activity_gg_maps">Map</string>
 </resources>

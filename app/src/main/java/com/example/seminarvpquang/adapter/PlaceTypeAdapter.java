@@ -39,7 +39,7 @@ public class PlaceTypeAdapter extends BaseAdapter {
         return position;
     }
     public class ViewHolder{
-        TextView textViewProductType;
+        TextView textViewplaceType;
         ImageView imageViewPlaceType;
     }
 
@@ -50,14 +50,14 @@ public class PlaceTypeAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.item_list_view_place_type,null);
-            viewHolder.textViewProductType = (TextView) view.findViewById(R.id.textViewPlaceType);
-            viewHolder.imageViewPlaceType = (ImageView) view.findViewById(R.id.imageViewPlaceType);
+            viewHolder.textViewplaceType = view.findViewById(R.id.textViewPlaceType);
+            viewHolder.imageViewPlaceType = view.findViewById(R.id.imageViewPlaceType);
             view.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) view.getTag();
         }
         PlaceType placeType = (PlaceType) getItem(position);
-        viewHolder.textViewProductType.setText(placeType.getnamePlace());
+        viewHolder.textViewplaceType.setText(placeType.getnamePlace());
         Picasso.get().load(placeType.getimagePlace()).into(viewHolder.imageViewPlaceType);
         return view;
     }

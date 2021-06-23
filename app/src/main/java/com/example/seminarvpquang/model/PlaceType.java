@@ -7,8 +7,8 @@ public class PlaceType {
 
     public PlaceType(int id, String namePlace, String imagePlace) {
         this.id = id;
-        namePlace = namePlace;
-        imagePlace = imagePlace;
+        this.namePlace = namePlace;
+        this.imagePlace = imagePlace;
     }
 
     public int getId() {
