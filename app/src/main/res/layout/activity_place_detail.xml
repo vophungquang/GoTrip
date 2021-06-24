@@ -30,7 +30,7 @@
 
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="120dp"
 
                     android:text="Đăng nhập" />
                 <Button
@@ -95,7 +95,17 @@
                             android:textStyle="bold" />
 
 
+
                     </LinearLayout>
+                    <TextView
+                        android:id="@+id/textViewPricePlaceDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="#0F8AC1"
+                        android:textStyle="bold"
+                        android:text="Gia san pham"/>
 
                     <Button
                         android:id="@+id/buttonshowMap"

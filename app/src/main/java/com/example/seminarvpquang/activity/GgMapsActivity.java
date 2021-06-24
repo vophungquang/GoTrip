@@ -63,7 +63,7 @@ public class GgMapsActivity extends AppCompatActivity implements OnMapReadyCallb
         LatLng nhathoducba = new LatLng(10.779944, 106.699051);
         mMap.addMarker(new MarkerOptions().position(nhathoducba).title("Nhà Thờ Đức Bà").icon(BitmapDescriptorFactory.defaultMarker()));
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        CameraPosition cameraPosition= new CameraPosition.Builder().target(nhathoducba).zoom(20).build();
+        CameraPosition cameraPosition= new CameraPosition.Builder().target(nhathoducba).zoom(50).build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 }

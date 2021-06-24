@@ -26,14 +26,17 @@ import com.android.volley.toolbox.Volley;
 import com.example.seminarvpquang.R;
 import com.example.seminarvpquang.adapter.CommentAdapter;
 import com.example.seminarvpquang.model.Comment;
+import com.example.seminarvpquang.model.Place;
 import com.example.seminarvpquang.model.User;
 import com.example.seminarvpquang.ultil.CheckConnection;
 import com.example.seminarvpquang.ultil.GoTrip;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -44,7 +47,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
     Toolbar btnToolbar;
     ImageView imageViewPlaceDetail,imghinhne,imageViewMuiTen,imgbinhluanUser;
-    TextView textViewNamePlaceDetail,textViewDescriptionPlaceDetail,txtdiemdanhgia;
+    TextView textViewNamePlaceDetail,textViewDescriptionPlaceDetail,textViewPricePlaceDetail,txtdiemdanhgia;
     int REQUEST_CODE_USER=123;
     Button buttonShowMap,btndangnhapchitiet,btnShowUser,btnExitUser;
     CommentAdapter commentAdapter;
@@ -54,7 +57,15 @@ public class PlaceDetailActivity extends AppCompatActivity {
     ListView listViewComment;
     EditText binhluanUser;
     User user;
+
     int id = 0;
+    int price=0;
+    String name = "";
+    String image = "";
+    String description = "";
+    int idPlace = 0;
+    int doanhthu=0;
+    String diemdanhgia="";
 
     //comment
     int idcm=0;
@@ -79,12 +90,13 @@ public class PlaceDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_place_detail);
         init();
         GetDataUsers();
-
+        GetDataPlaceDetail();
         imageViewMuiTen.setImageResource(R.drawable.muiten);
         imghinhne.setImageResource(R.drawable.caybut);
         imgbinhluanUser.setImageResource(R.drawable.comment);
         GetDataComment(tendiadiembinhluan);
         Log.e("vpq"," binhluan la:"+tendiadiembinhluan+"");
+
         if(btnShowUser.getText().length()!=0) {
             binhluanUser.setEnabled(true);
         }
@@ -118,7 +130,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 btnShowUser.setVisibility(View.GONE);
                 btnExitUser.setVisibility(View.GONE);
-                binhluanUser.setEnabled(false);
+                binhluanUser.setEnabled(true);
                 btndangnhapchitiet.setVisibility(View.VISIBLE);
             }
         });
@@ -163,7 +175,6 @@ public class PlaceDetailActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String,String> params=new HashMap<>();
-
                 params.put("id_user",idUserDangNhap+"");
                 params.put("id_diadiem",id+"");
                 params.put("content",binhluanUser.getText().toString());
@@ -192,7 +203,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
                             username = jsonObject.getString("username");
                             tendiadiem = jsonObject.getString("tendiadiem");
                             content = jsonObject.getString("content");
-                            boolean add = commentArrayList.add(new Comment(id, username, tendiadiem, content));
+                            commentArrayList.add(new Comment(id, username, tendiadiem, content));
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -255,7 +266,25 @@ public class PlaceDetailActivity extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
 
+    private void GetDataPlaceDetail() {
+        Place pl = (Place) getIntent().getSerializableExtra("information");
+        id = pl.getId();
+        price=pl.getdoanhthu();
+        name = pl.getnamePlace();
+        tendiadiembinhluan = name;
+        image = pl.getimagePlace();
+        description = pl.getdescriptionPlace();
+        idPlace = pl.getidPlace();
+        doanhthu = pl.getdoanhthu();
+        diemdanhgia = pl.getDiemdanhgia();
 
+        textViewNamePlaceDetail.setText(name);
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        textViewPricePlaceDetail.setText("Giá : " + decimalFormat.format(price) + " VND ");
+        textViewDescriptionPlaceDetail.setText(description);
+        Picasso.get().load(image).into(imageViewPlaceDetail);
+        txtdiemdanhgia.setText(diemdanhgia+"");
+    }
 
 
     private void init() {
@@ -263,6 +292,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
         imageViewPlaceDetail      =   findViewById(R.id.imageViewPlaceDetail);
         textViewNamePlaceDetail =     findViewById(R.id.textViewNamePlaceDetail);
         textViewDescriptionPlaceDetail= findViewById(R.id.textViewDescriptionPlaceDetail);
+        textViewPricePlaceDetail =    findViewById(R.id.textViewPricePlaceDetail);
         buttonShowMap  =   findViewById(R.id.buttonshowMap);
         imageViewMuiTen=                findViewById(R.id.imageMuiTen);
         imgbinhluanUser                 =findViewById(R.id.iconbinhluan);
@@ -272,7 +302,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
         txtdiemdanhgia=findViewById(R.id.textviewDiemdanhgia);
         imghinhne=findViewById(R.id.imageHinhne);
         listViewComment= findViewById(R.id.listviewComment);
-        commentArrayList=new ArrayList<>();
+        commentArrayList=new ArrayList<Comment>();
         commentArrayListFilter=new ArrayList<>();
         commentAdapter=new CommentAdapter(this,R.layout.binh_luan,commentArrayListFilter);
         listViewComment.setAdapter(commentAdapter);

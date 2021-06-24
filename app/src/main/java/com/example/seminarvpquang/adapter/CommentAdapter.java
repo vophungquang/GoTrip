@@ -64,7 +64,6 @@ public class CommentAdapter extends BaseAdapter {
         final Comment comment = arrayComment.get(i);
 
         holder.textViewName.setText(comment.getUsername());
-
         holder.textViewnoidung.setText(comment.getContent()+"");
 
         return view;

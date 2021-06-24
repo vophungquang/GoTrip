@@ -68,6 +68,7 @@ public class DetailPlaceAdapter extends BaseAdapter {
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         holder.textViewDoanhThu.setText("Price : " + decimalFormat
                 .format(place.getdoanhthu()) + "VND");
+        holder.textViewDoanhThu.setText(place.getdoanhthu());
         Picasso.get().load(place.getimagePlace())
                 .into(holder.imageViewPlace);
         return view;
